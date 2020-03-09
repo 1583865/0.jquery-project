@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body>
+	<input type="button" value="设置边框" id="btnOne">
+	<input type="button" value="设置文本" id="btnTwo">
+	<div></div>
+	<div></div>
+	<div></div>
+	
+
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 入口函数
+		window.onload = function () {
+			// 1.对应元素
+			var btnOne = document.getElementById("btnOne");
+			var btnTwo = document.getElementById("btnTwo");
+			var divs = document.getElementsByTagName("div");
+			// 2.btnOne按钮点击事件
+			btnOne.onclick = function() {
+				for (var i = 0; i<divs.length;i++) {
+					divs[i].style.border='1px solid red';
+				}
+			}
+			// 3.btnTwo按钮点击事件
+			btnTwo.onclick = function() {
+				for(var i= 0; i<divs.length;i++) {
+					divs[i].textContent = "设置文本";
+				}
+			}
+		}
+		// 原生js缺点
+		// 1.不能添加多个入口函数*（window.onload)  后面覆盖前面
+		// 2.api名字太长
+		// 3.代码冗余
+		// 4.ie低版本不支持文本   有些属性和方法有兼容性问题
+		// 5.容错率比较低 前面代码出问题后面不执行
+	</script>
+</body>
+</html>

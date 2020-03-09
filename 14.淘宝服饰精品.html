@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝服饰</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+	ul,ol {
+		list-style: none;
+	}
+	.wrapper {
+		width: 400px;
+		height: 250px;
+		margin: 0 auto;
+		border: 1px solid #000;
+		position: relative;
+		overflow: hidden;
+	}
+	.wrapper #left {
+		float: left;
+	}
+	.wrapper #right {
+		position: absolute;
+		top: 0px;
+		left:352px;
+	}
+	.wrapper #center li a img{
+		width: 300px;
+		height: 248px;
+	}
+	#left li a,#right li a {
+		display: block;
+		width: 48px;
+		height: 27px;
+		border-bottom: 1px solid pink;
+		line-height: 27px;
+		text-align: center;
+		color: block;
+	}
+	#left li a:hover, #right li a:hover {
+		background-color: red;
+	}
+	
+	#center {
+		border-left: 1px solid pink;
+		border-right: 1px solid pink;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<ul id="left">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">8</a></li>
+			<li><a href="#">9</a></li>
+			
+		</ul>
+
+
+		<ul id="center">
+			
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/12.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/13.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/14.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/15.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/16.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/12.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/13.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/15.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/11.jpg" width="200" height="250"></a></li>
+			<li><a href="#"><img src="./img/12.jpg" width="200" height="250"></a></li>
+		</ul>
+
+		<ul id="right">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">8</a></li>
+			<li><a href="#">9</a></li>
+		</ul>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	   $(function() {
+
+	   	// 需求1：给左边li标签们设置鼠标移入事件  让中间索引对应的li显示 其他li隐藏
+	   	$('#left>li').mouseenter(function() {
+	   		// 获取当前鼠标移入这个li标签的索引
+	   		var idx = $(this).index();//索引：元素在兄弟元素之间排行
+	   		// console.log(idx);
+
+	   		// $('#center>li:eq('+idx+')');//字符串拼接
+	   		$('#center>li').eq(idx).css('display','block').siblings('li').css('display','none');
+	   	});
+
+
+	   	// 需求2：给右边的li标签们设置鼠标移入事件 让中间索引对应的li显示 其他li隐藏
+	   	$('#right>li').mouseenter(function() {
+	   		var idx = $(this).index();
+	   		idx += 9;
+	   		$('#center>li').eq(idx).show().siblings('li').hide();
+	   		
+	   	});
+
+
+
+	   	// 思考题 为什么给li标签设置鼠标移入事件 而不是给a标签设置鼠标移入事件
+	   	/*
+	   	不能拿到正确的索引
+			
+	   	*/
+	   	// $('#left a').mouseenter(function() {
+	   	// 	var idx = $(this).index();//0,0,0,0,0,0
+	   		
+	   	// });
+	   })
+
+	   </script>
+	
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>突出显示</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+
+	}
+	body {
+		background: #000;
+	}
+	ul,ol {
+		list-style: none;
+	}
+		.wrap {
+			margin: 100px auto 0;
+			width: 630px;
+			height: 394px;
+			padding: 10px 0 0 10px;
+			background: #000;
+			overflow: hidden;
+			border: 1px solid #fff;
+		}
+		.wrap li {
+			float: left;
+			margin: 0px 10px 10px 0px;
+		}
+		.wrap img {
+			display: block;
+			border: 0;
+			width: 200px;
+			height: 186px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li><a href="#"><img src="./img/11.jpg"></a></li>
+			<li><a href="#"><img src="./img/12.jpg"></a></li>
+			<li><a href="#"><img src="./img/13.jpg"></a></li>
+			<li><a href="#"><img src="./img/14.jpg"></a></li>
+			<li><a href="#"><img src="./img/15.jpg"></a></li>
+			<li><a href="#"><img src="./img/16.jpg"></a></li>
+		</ul>
+	</div>
+	
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   
+	   	
+	   $(function() {
+
+
+	   	// 需求1：给小人物所在的li标签设置鼠标移入事件 当前li标签透明度1 其他兄弟li标签透明度为0.4
+
+	   	$('.wrap').find('li').mouseenter(function() {
+	   		// $(this).css('opacity',1);//这个css方法有返回值 返回值就是设置这个方法的元素本身
+	   		$(this).css('opacity',1).siblings('li').css('opacity','0.4');
+	   		
+	   	});
+
+
+
+
+
+
+	   	// 需求2：鼠标离开大盒子  所有li标签透明度为1
+
+	   	$('.wrap').mouseleave(function() {
+	   		// $('.wrap').find('li').css('opacity',1);
+	   		$(this).find('li').css('opacity',1);//这个离开事件中，this是这个整个大盒子
+
+	   	});
+	   })
+	   </script>
+</body>
+</html>

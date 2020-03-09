@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置文本</title>
+</head>
+<body>
+	<input type="button" value="获取" id="getBtn">
+	<input type="button" value="设置" id="setBtn">
+
+
+	<div id="div1">div标签1
+		<p>p标签1<span>sapn1</span></p>
+	</div>
+	<div>div标签
+		<p>p标签2<span>sapn2</span></p>
+	</div>
+
+
+	<script type="text/javascript " src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+		$(function() {
+
+
+			//text  设置 获取
+				// 1.获取文本  所有文本 包括后代元素标签
+			$("#getBtn").click(function() {
+
+				console.log($("#div1").text());
+
+				//2.获取标签为div的元素文本  多个dom元素的jq对象 
+				//把所有dom元素文本获取到
+				console.log($('div').text());
+			});
+
+
+			//3.设置文本  text()方法参数 参数就是要设置的文本
+			$('#setBtn').click(function() {
+				//给id为div1的这个标签设置文本
+				//会覆盖原来的内容
+				//文本中包含标签 是不会把这个标签解析出来
+				$('#div1').text("新文本");
+				$('#div1').text("新文本 <a>123</a>");
+
+
+				//4,标签为div设置文本
+				//包含多个dom元素通过text()方法设置文本，会把所有dom元素设置上
+				$('div').text("新文本");//隐士迭代
+			})
+
+
+		})
+	</script>
+</body>
+</html>

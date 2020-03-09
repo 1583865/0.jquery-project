@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript " src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			//1.dom对象
+			//原生js选择期获取到对象
+			//特点：只能调用dom方法或者属性，不能调用jquery属性方法
+
+
+			var div1 = document.getElementById("one");
+			div1.style.backgroundColor = 'red';//dom对象可以调用dom属性 方法
+			div.css("backgroundColor",'green');//报错
+
+
+			// // 2.jquery
+			// //jquery选择期获取对象
+			// //特点：只能调用jquery对象方法或属性 不能使用原生jsdom对象属性 方法
+			var $div1 = $('#one');
+			$div1.css('backgroundColor','green');//正确 jquery对象可以调用属性 方法
+			$div1.style.backgroundColor = 'red';//报错 Cannot set property 'backgroundColor' of undefined
+
+
+			// // 3.jquery长什么样
+			//    // 伪数组  jquery就是dom的包装集
+				var div1 = document.getElementById("one");
+				console.log(div1);
+
+
+
+			var $div1 = $("#one");
+			console.log($div1);
+			// // console.log($div1.__proto__ === Array.prototype);//false  是一个伪数组
+
+			var $divs = $('div');
+			console.log($divs);
+
+
+
+			// 4.dom转为jquery对象
+			var div1 = document.getElementById("one");
+			var $div1  = $(div1);
+			console.log($div1);
+
+
+
+			// 5.jquery对象 转为dom对象
+			// 1.下标取出来
+			var $divs = $("div");
+			console.log($divs);
+			$div1 = $divs[0];
+			console.log(div1);
+
+			// 2.使用get()
+			 var div2 = $divs.get(1);
+			 console.log(div2);
+
+
+
+		});
+	</script>
+</body>
+</html>

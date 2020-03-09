@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本选择器</title>
+</head>
+<body>
+	
+	<!-- 
+		id选择器   $('#id');   获取指定id的元素
+		类选择器   $('.class')  获取同一类class元素
+		标签选择器 $('div')   获取同一类标签所有元素
+		并集选择器 $('div,p,li')  使用逗号分隔，只要符合条件之一就可
+		交集选择器 $('div.redClass');  获取class为redClass的div元素
+
+	 -->
+
+<div>
+	 <ul>
+	 	<li id="slg">司令营</li>
+	 </ul>
+	 <!-- 独立团 -->
+	 <ul id="dlt">
+	 	<li class="tz">独立团团长</li>
+	 	<li>阻击手</li>
+	 	<li>炮兵</li>
+	 	<li>士兵</li>
+
+	 	<li class="hf">伙夫</li>
+	 	<li class="wsy">卫生员</li>
+	 </ul>
+
+
+	 <!-- 358团 -->
+	 <ul id="dlt">
+	 	<li class="tz">358团团长</li>
+	 	<li>阻击手</li>
+	 	<li>炮兵</li>
+	 	<li class="nj">士兵</li>
+	 	<li>士兵</li>
+	 	<li>士兵</li>
+	 	<li class="hf">伙夫</li>
+	 	<li class="wsy">卫生员</li>
+	 </ul>
+	</div>
+	<div>
+		<p class="nj">百姓</p>
+		<p class="nj">百姓</p>
+		<p>百姓</p>
+		<p>百姓</p>
+		<p>百姓</p>
+		<p>百姓</p>
+	</div>
+
+
+
+	<script type="text/javascript " src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   $(function() {
+
+
+
+
+
+		/*抗日开始.action
+		1.司令官发表讲话  司令官比较大，要把司令官变得大些
+		id选择器
+		格式：$('#id')
+		作用：通过id获取页面中的元素*/
+		$('#slg').css('fontSize',50);
+
+		/*团长回去讲话
+		团长使用类选择器
+		格式：$('.class')
+		作用：获取页面中的一类元素 通过class属性获取
+		jquery中支持隐士迭代 迭代就是遍历*/
+		$('.tz').css("fontSize",30);
+
+		/*进入战场 全军出击
+		标签选择器
+		格式：$('div')
+		通过标签获取对应元素
+*/
+$('li').css('backgroundColor','red');
+
+
+/*
+战场上发现有人背着锅，伙夫和卫生员没有战斗力的 撤下来
+需要把伙夫和卫生员背景色改为白色
+需要做贡献
+并集选择器
+$("selector1,selector2,...");
+*/
+$('.hf,.wsy').css('backgroundColor','#fff');
+
+
+/*
+现在打败仗 发现出现内奸
+现在把内奸找出来，不能干扰老百姓
+j交集管理器  li.current
+格式：$("selector1selector2");注：中间没有任何空格
+获取两个选择器之间的交集
+*/
+$('li.nj').css('backgroundColor','green');
+$('p.nj').css('backgroundColor','green');
+	  
+
+	   })
+	</script>
+</body>
+</html>

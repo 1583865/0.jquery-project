@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变色</title>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>10</li>
+</ul>
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   
+	   	
+	   $(function() {
+	   	// 奇数行 天蓝色
+	   	$('li:odd').css('backgroundColor','skyblue');
+
+
+	   	// 偶数页  红色
+	   $('li:even').css('backgroundColor','red');
+
+
+	   <!-- //首尾2行为绿色 -->
+	   $('li:eq(0)').css('backgroundColor','green');
+	   $('li:eq(9)').css('backgroundColor','green');
+	   });
+
+	   
+	   </script>
+
+
+</body>
+</html>

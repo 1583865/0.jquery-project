@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>层级选择</title>
+</head>
+<body>
+	<p></p>
+	<div id="father">
+	<div>
+		<span>span1</span>
+		<span>span2</span>
+		<span>span3</span>
+		<span>span4</span>
+	</div>
+	
+	<div>
+		<b>1</b>
+		<div>div1</div>
+		<div>div2</div>
+		<div>div3</div>
+		<p></p>
+	</div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<span>span111</span>
+
+</div>
+	
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   
+	   	
+	   $(function() {
+	   	console.log("123");
+	   	// 需求1：获取id为father这个元素的子div
+	   	console.log($('#father > div'));
+	   	//结果: jQuery.fn.init(3) [div, div, div, prevObject: jQuery.fn.init(1)]
+	  
+
+
+	   // 需求2： 获取id为father这个元素所有子div所有p
+	   console.log($('#father > div,#father>p'));
+	   // 结果：jQuery.fn.init(6) [div, div, div, p, p, p, prevObject: jQuery.fn.init(1)]
+
+	   // 需求3： 获取id为father这个div所有的后代div
+	   console.log($('#father div'));
+	   // 结果：jQuery.fn.init(6) [div, div, div, div, div, div, prevObject: jQuery.fn.init(1)]
+	    })
+
+	   </script>
+</body>
+</html>

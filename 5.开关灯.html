@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开关灯</title>
+
+</head>
+<body>
+	<button>开灯</button>
+	<button>关灯</button>
+	<img src="./img/1.jpg">
+</body>
+<script type="text/javascript " src="./js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//获取按钮们
+		var btns = document.getElementsByTagName("button");
+
+
+		// 关灯
+		btns[1].onclick = function() {
+			$('body').css('backgroundColor','#000');
+		}
+
+		//开灯
+		$(btns[0]).click(function() {
+			$('body')[0].style.backgroundColor = "#fff";
+
+
+		})
+
+	})
+</script>
+</html>

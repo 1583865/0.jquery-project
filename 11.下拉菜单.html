@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	.wrap  {
+		background-color: #999;
+	}
+	ul {
+		list-style: none;
+	}
+	.wrap a {
+		display: block;
+		height: 30px;
+		width: 100px;
+		line-height: 30px;
+		text-align: center;
+		text-decoration: none;
+		color: #000;
+	}
+	.wrap ul li {
+		float: left;
+		margin-right: 10px;
+		position: relative;
+		border-radius: 5px;
+
+		
+
+	}
+	.wrap li {
+		background: url('./img/搜狗截图20190630143358.jpg');
+	}
+		.wrap li ul {
+			position: absolute;
+			top: 30px;
+			display: none;
+
+		}
+
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<ul>
+		<li><a href="javascript:void(0);">一级菜单</a>
+			<ul>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+	</ul>
+</li>
+
+<li><a href="javascript:void(0);">一级菜单</a>
+			<ul>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+	</ul>
+</li>
+
+
+<li><a href="javascript:void(0);">一级菜单</a>
+			<ul>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+		<li><a href="javascript:void(0);">二级菜单</a></li>
+	</ul>
+</li>
+
+	</ul>
+</div>
+
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   
+	   	
+	   $(function() {
+	   	// 需求：给一级菜单li设置鼠标移入事件，二级菜单显示
+
+	   			// 给一级菜单li设置鼠标离开事件，二级菜单隐藏
+
+
+	   			// 1.鼠标移入
+	   			var i =0;
+	   			$('.wrap>ul>li').mouseenter(function() {
+	   				i++;
+	   				console.log(i);
+	   				// console.log("123");
+	   				// console.log(this);//税触发鼠标移入事件 这个this指向谁  dom对象
+	   				$(this).children('ul').css('display','block');//显示就是更改display为block
+	   				// $(this).children('ul').show();//显示就是更改display为block
+					});
+
+
+
+	   				// 2.离开事件
+	   				$('.wrap>ul>li').mouseleave(function() {
+	   					$(this).children('ul').hide();//本质上更新display为none
+	   					$(this).children('ul').css('display','none');
+	   				});
+
+
+	   				// 3.思考题
+	   				// 为什么不给一级菜单a标签设置鼠标移入和离开事件
+	   				// 选不到二级菜单
+	   				$('.wrap>ul>li>a').mouseover(function() {
+	   					$(this).siblings('ul').show();
+	   				});
+	   				$('.wrap>ul>li>a').mouseout(function() {
+	   					$(this).siblings('ul').hide();
+	   				});
+
+
+	   				// 鼠标移入：mouseenter
+	   				// 鼠标离开：mouseleave
+
+
+
+	   				
+	   		
+
+	   });
+	   </script>
+	
+</body>
+</html>

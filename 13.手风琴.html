@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul,ol {
+		list-style: none;
+	}
+	.menugroup div {
+		height: 200px;
+		background-color: #fff;
+		display: none;
+	}
+
+	.menugroup {
+		border: 1px solid #999;
+		background-color: #e0ecff;
+		width: 200px;
+	}
+	.parentwrap {
+		width: 200px;
+
+	}
+
+	</style>
+</head>
+<body>
+	<ul class="parentwrap">
+		<li class="menugroup">
+			<span class="grouptitle">标题1</span>
+			<div>弹出1</div>
+		</li>
+		<li class="menugroup">
+			<span class="grouptitle">标题2</span>
+			<div>弹出2</div>
+		</li>
+		<li class="menugroup">
+			<span class="grouptitle">标题3</span>
+			<div>弹出3</div>
+		</li>
+		<li class="menugroup">
+			<span class="grouptitle">标题4</span>
+			<div>弹出4</div>
+		</li>
+	</ul>
+
+
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+
+	   
+	   	
+	   $(function() {
+	   	// 需求：点击标题li标签 对应div显示  他的兄弟标签li下面的div隐藏
+	   	$('.parentwrap>.menugroup').click(function() {
+	   		// jquery特性：隐士迭代 链式编程 方法返回jquery对象 继续点出jquery方法来
+	   		$(this).children('div').show().parent().siblings('li').children('div').hide();//有返回值
+	   	})
+	   })
+	   </script>
+	
+</body>
+</html>
